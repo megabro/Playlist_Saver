@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Playlist_Saver
 {
@@ -7,7 +9,8 @@ namespace Playlist_Saver
     {
         private static void Usage()
         {
-            Console.WriteLine("Usage: playlist_saver [--html] [--ytAPI] <html file>");
+            Console.WriteLine("Usage: playlist_saver [--html] <html file>");
+            Console.WriteLine("       playlist_saver [--ytAPI] <playlist name>");
         }
         
         //pl_saver 
@@ -19,13 +22,29 @@ namespace Playlist_Saver
                 return;
             }
 
-            switch (args[0])
+            var outputList = new List<PlaylistItem>();
+
+            var argList = new List<string>(args);
+            
+            var options = argList.FindAll(k => k.StartsWith("--"));
+            argList = argList.Except(options).ToList();
+            
+            if (options.Count != 1)
+            {
+                Usage();
+                return;
+            }
+
+            // string "html" or "ytapi"
+            switch (options[0])
             {
                 case "--html":
                     //HTML impl
+                    outputList = new HtmlParser(argList);
                     break;
                 case "--ytAPI":
                     //ytAPI impl
+                    outputList = new YTParser(argList);
                     break;
                 default:
                     Usage();
@@ -33,7 +52,7 @@ namespace Playlist_Saver
             }
 
             //Output list to console
-            Console.WriteLine("test");
+            outputList.ForEach(k => k.FormatedPrint());
         }
     }
 }
