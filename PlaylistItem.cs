@@ -21,31 +21,31 @@ namespace Playlist_Saver
         public void FormatedPrint()
         {
             //Console.WriteLine("{0} ({1}), {2}, {3} ", Title, Id, Length, UploadDate);
-
-            Id = null;
+            PrintTitle();
+            PrintId();
+            PrintLength();
+            PrintUpDate();
+            Console.Write("\n");
         }
 
         private void PrintTitle()
         {
-            Console.Write(Title);
+            if (Title != null) Console.Write("{0}", Title);
         }
-        
+
         private void PrintId()
         {
-            if (Id != null)
-            {
-                Console.Write("({0})", Id);
-            }
+            if (Id != null) Console.Write(" ({0})", Id);
         }
-        
+
         private void PrintLength()
         {
-            Console.Write(Length);
+            if (Length != null) Console.Write(" {0}", Length);
         }
-        
+
         private void PrintUpDate()
         {
-            Console.Write(UploadDate);
+            if (UploadDate != null) Console.Write(" {0}", UploadDate);
         }
     }
 }
