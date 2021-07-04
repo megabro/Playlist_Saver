@@ -42,7 +42,7 @@ namespace Playlist_Saver
                     break;
                 case "--ytAPI":
                     //ytAPI impl
-                    outputList = YTParser.Parse(argList);
+                    outputList = new YTParser(argList);
                     break;
                 default:
                     Usage();
