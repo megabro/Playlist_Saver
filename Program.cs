@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 namespace Playlist_Saver
@@ -13,7 +12,6 @@ namespace Playlist_Saver
             Console.WriteLine("       playlist_saver [--ytAPI] <playlist name>");
         }
         
-        //pl_saver 
         static void Main(string[] args)
         {
             if (args.Length is < 1 or > 2)
@@ -35,16 +33,16 @@ namespace Playlist_Saver
                 return;
             }
 
-            // string "html" or "ytapi"
+            //arg "html" or "ytapi"
             switch (options[0])
             {
                 case "--html":
                     //HTML impl
-                    outputList = new HtmlParser(argList);
+                    outputList = HtmlParser.Parse(argList);
                     break;
                 case "--ytAPI":
                     //ytAPI impl
-                    outputList = new YTParser(argList);
+                    outputList = YTParser.Parse(argList);
                     break;
                 default:
                     Usage();

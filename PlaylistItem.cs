@@ -1,6 +1,8 @@
+using System;
+
 namespace Playlist_Saver
 {
-    public struct PlaylistItem
+    public class PlaylistItem
     {
         public PlaylistItem(string title, string id, string length, string uploadDate)
         {
@@ -18,7 +20,7 @@ namespace Playlist_Saver
         // Should print out all the properties of the item (title, id, length, upload date)
         public void FormatedPrint()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine("{0} ({1}), {2}, {3} ", Title, Id, Length, UploadDate);
         }
     }
 }
