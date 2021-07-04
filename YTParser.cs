@@ -14,7 +14,6 @@ namespace Playlist_Saver
         {
             var outputList = new List<PlaylistItem>();
             
-            
             return outputList;
         }
     }

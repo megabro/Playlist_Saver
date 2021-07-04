@@ -20,7 +20,32 @@ namespace Playlist_Saver
         // Should print out all the properties of the item (title, id, length, upload date)
         public void FormatedPrint()
         {
-            Console.WriteLine("{0} ({1}), {2}, {3} ", Title, Id, Length, UploadDate);
+            //Console.WriteLine("{0} ({1}), {2}, {3} ", Title, Id, Length, UploadDate);
+
+            Id = null;
+        }
+
+        private void PrintTitle()
+        {
+            Console.Write(Title);
+        }
+        
+        private void PrintId()
+        {
+            if (Id != null)
+            {
+                Console.Write("({0})", Id);
+            }
+        }
+        
+        private void PrintLength()
+        {
+            Console.Write(Length);
+        }
+        
+        private void PrintUpDate()
+        {
+            Console.Write(UploadDate);
         }
     }
 }

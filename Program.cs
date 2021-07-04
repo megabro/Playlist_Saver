@@ -38,7 +38,7 @@ namespace Playlist_Saver
             {
                 case "--html":
                     //HTML impl
-                    outputList = HtmlParser.Parse(argList);
+                    outputList = new HtmlParser(argList);
                     break;
                 case "--ytAPI":
                     //ytAPI impl
