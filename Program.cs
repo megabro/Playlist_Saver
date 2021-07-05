@@ -8,7 +8,7 @@ namespace Playlist_Saver
     {
         private static void Usage()
         {
-            Console.WriteLine("Usage: playlist_saver [--html] <html file>");
+            Console.WriteLine("Usage: playlist_saver [--html] <html files>");
             Console.WriteLine("       playlist_saver [--ytAPI] <playlist name>");
         }
         
