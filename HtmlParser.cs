@@ -23,7 +23,7 @@ namespace Playlist_Saver
                     var tempStr = line.Substring(lineStart);
                     tempStr = tempStr.Substring(0, tempStr.IndexOf('"'));
 
-                    var outputItem = new PlaylistItem(tempStr, null, null, null);
+                    var outputItem = new PlaylistItem(tempStr, null, null, null, null);
 
                     Add(outputItem);
                 }

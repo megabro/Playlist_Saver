@@ -50,7 +50,7 @@ namespace Playlist_Saver
             }
 
             //Output list to console
-            outputList.ForEach(k => k.FormatedPrint());
+            outputList.ForEach(k => k.FormatedPrint(PlaylistItem.PrintMode.Full));
         }
     }
 }
